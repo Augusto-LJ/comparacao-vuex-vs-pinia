@@ -1,33 +1,23 @@
 import { defineStore } from 'pinia';
+import {ref, computed } from 'vue';
 
-// ✅ Definição do estado com tipagem explícita
-interface CounterState {
-  count: number;
-}
+export const useCounterStore = defineStore('counter', () => {
+  const count = ref(0);
 
-export const useCounterStore = defineStore('counter', {
-  state: (): CounterState => ({
-    count: 0
-  }),
+  const doubleCount = computed(() => count.value * 2);
 
-  getters: {
-    doubleCount: (state) => state.count * 2
-  },
-
-  actions: {
-    increment() {
-      this.count++;
-    },
-    decrement() {
-      this.count--;
-    },
-    reset() {
-      this.count = 0;
-    },
-    asyncIncrement() {
-      setTimeout(() => {
-        this.increment();
-      }, 500);
-    }
+  function increment() {
+    count.value++;
   }
+  function decrement() {
+    count.value--;
+  }
+  function reset() {
+    count.value = 0;
+  }
+  function asyncIncrement() {
+    setTimeout(increment, 500);
+  }
+
+  return { count, doubleCount, increment, decrement, reset, asyncIncrement };
 });
