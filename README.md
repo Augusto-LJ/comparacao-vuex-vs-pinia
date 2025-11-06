@@ -65,6 +65,18 @@ const count = ref(props.initial)
 ---
 
 ## 🏪 Vuex: o clássico gerenciador de estado
+
+### O que é Vuex?
+Vuex foi a solução oficial de gerenciamento de estado do Vue.js por muitos anos. A sintaxe do Vuex é voltada ao Options API, por ter sido criado bem antes do Vue.js 3.<br>
+
+Tem 4 pilares:
+- **state**:  Guarda o estado global
+- **getters**: Computam valores derivados do estado global
+- **actions**: executam lógicas assíncronas e chamam mutations
+- **mutations**: alteram o estado de forma síncrona
+
+Exemplo simplificado abaixo:
+
 📄 store/index.js
 ```js
 import { createStore } from 'vuex'
@@ -134,7 +146,7 @@ export const store = createStore({
 </script>
 ```
 
-⚙️ Características do Vuex
+⚙️ Características (e limitações) do Vuex
 - Baseado em mutations e actions obrigatórias
 - Estrutura verbosa
 - Boilerplate (muito código para ações simples)
@@ -144,6 +156,13 @@ export const store = createStore({
 ---
 
 ## 🌱 Pinia: a nova geração
+
+### O que é Pinia?
+Pinia é o sucessor oficial do Vuex, criado pelos próprios mantedores do Vue.js. Abaixo está uma foto tirada da [página oficial do Vue.js](https://pinia.vuejs.org), comprovando o que disse anteriormente e recomendando que seja usado para novos projetos:
+<img width="1844" height="847" alt="image" src="https://github.com/user-attachments/assets/65419275-44fe-4c34-bbae-905ec7ef25fe" />
+
+Exemplo simplificado abaixo:
+
 📄 counterStore.ts
 ```ts
 import { defineStore } from 'pinia';
@@ -199,10 +218,25 @@ const store = useCounterStore()
 
 ⚙️ Características do Pinia
 - Baseado na Composition API.
-- Suporte nativo a TypeScript.
+- Suporte nativo a TypeScript (fortemente tipado).
 - Sem necessidade de mutations.
-- Sintaxe limpa e intuitiva.
-- Cada store é uma função reativa.
-- Reatividade e hot reload automáticos.
+- Sintaxe limpa, simples e intuitiva.
+- Modular por design (é possível ter várias stores com diferentes responsabilidades e mais facilidade)
 
-> Em construção
+---
+
+# ✅ Conclusão
+O Pinia não é apenas uma alternativa ao Vuex. É a evolução oficial do gerenciamento de estado no ecossistema Vue.<br>
+Lembre-se:
+1. Se você vai iniciar um projeto novo em Vue 3, use Pinia
+2. Se seu projeto ainda usa Vuex, considere migrar gradualmente para o Pinia
+
+**Se você puder lembrar apenas de uma coisa de toda esta explicação, lembre-se desta tabela:**
+| Vuex é...                   | Pinia é...               |
+|-----------------------------|--------------------------|
+|Verboso                      |Simples                   |
+|Baseado em Options API       |Baseado em Composition API|
+|Com mutations e helpers      |Direto e intuitivo        |
+|Pouco amigável ao Typescript |Fortemente tipado         |
+|Substituído                  |Recomendado oficialmente  |
+
