@@ -240,3 +240,19 @@ Lembre-se:
 |Pouco amigável ao Typescript |Fortemente tipado         |
 |Substituído                  |Recomendado oficialmente  |
 
+# 🤝 Contribuições
+
+Este projeto é aberto a contribuições (e elas são muito bem-vindas!) 💙
+Se você encontrou um erro, tem uma sugestão de melhoria ou quer adicionar novos exemplos, fique à vontade para participar.
+
+## Como contribuir:
+
+- Faça um fork deste repositório
+- Crie uma branch para sua modificação:
+  ```git
+  git checkout -b minha-melhoria
+  ```
+- Implemente suas alterações
+- Envie um pull request descrevendo claramente o que foi feito
+
+> 🔎 Dica: contribuições não precisam ser grandes — mesmo pequenas correções de texto, exemplos adicionais ou melhorias no README são extremamente úteis.
